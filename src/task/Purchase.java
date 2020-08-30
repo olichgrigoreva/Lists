@@ -22,6 +22,7 @@ public class Purchase implements Basket {
         } else {
             products.add(product);
             prodQuantity.add(quantity);
+            System.out.printf("Продукт %s доавлен в корзину в кол-ве: %d.%n", product, quantity);
         }
     }
 

@@ -12,29 +12,22 @@ public class MainApp {
         newBasket.addProduct("Арбуз", 1);
         printList(newBasket);
 
-        System.out.println();
         newBasket.addProduct("Персик", 15);
-
-        System.out.println();
-        System.out.println("Ваша корзина:");
         printList(newBasket);
 
-        System.out.println();
         newBasket.addProduct("Апельсин", 47);
         printList(newBasket);
 
-        System.out.println();
         newBasket.updateProductQuantity("Груша", 25);
         printList(newBasket);
 
-        System.out.println();
+        newBasket.removeProduct("Персик");
+        printList(newBasket);
+
         System.out.printf("В корзине Апельсинов: %d", newBasket.getProductQuantity("Апельсин"));
 
         System.out.println();
         newBasket.clear();
-        printList(newBasket);
-
-        newBasket.addProduct("Апельсин", 47);
         printList(newBasket);
     }
 
@@ -46,10 +39,11 @@ public class MainApp {
     public static void printList(Purchase basket) {
         ListIterator<String> prodIt = basket.getProducts().listIterator();
         String value;
+        System.out.print("Ваша корзина: ");
         while (prodIt.hasNext()) {
             value = prodIt.next();
             System.out.print(value + ": " + basket.getProductQuantity(value) + "; ");
         }
-        System.out.println();
+        System.out.println("\n");
     }
 }
