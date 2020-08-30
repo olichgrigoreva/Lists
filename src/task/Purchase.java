@@ -2,6 +2,7 @@ package task;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Purchase implements Basket {
 
@@ -68,5 +69,19 @@ public class Purchase implements Basket {
             }
         }
         return index;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Purchase purchase = (Purchase) o;
+        return Objects.equals(products, purchase.products) &&
+                Objects.equals(prodQuantity, purchase.prodQuantity);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(products, prodQuantity);
     }
 }
